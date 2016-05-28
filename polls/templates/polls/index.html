@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Add polls navigation here -->
+{% include 'polls/pollsnav.html' %}
+
+<article class="container questions">
+{% for question in questions %}
+  <section class="question">
+    <header>
+      <h2>{{question.question_text}}</h2>
+    </header>
+
+    {% for choice in question.choice_set.all %}
+      <div class="choice">
+        <div class="text">{{ choice.choice_text }}</div>
+        <!-- <div class="votes">{{ choice.votes }}</div> -->
+        <div class="votes progress" data-votes={{ choice.votes }}>
+          <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </section>
+{% endfor %}
+</article>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+.questions {
+  .question {
+    padding:1.5rem;
+    padding-top:0;
+    border:1px solid #333;
+    border-radius:3px;
+
+    header h2 {
+     color:#44138C;
+     font-family: serif;
+    }
+
+    .choice {
+      display: flex;
+      flex-direction: column;
+      margin-bottom:.5rem;
+
+      div {
+        flex: 1;
+        margin-bottom:.5rem;
+      }
+
+      .text {
+        background-color:#2399F3;
+        color:#f5f5f5;
+        padding:.5rem;
+      }
+
+      .votes {
+
+      }
+    }
+
+  }
+}
