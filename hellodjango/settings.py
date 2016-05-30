@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +40,9 @@ INSTALLED_APPS = [
 
     #Other Apps
     'compressor',
+    'rest_framework',
+    'polls.apps.PollsConfig',
+    'polls_api.apps.PollsApiConfig',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -144,3 +146,11 @@ USE_TZ = True
 
 STATIC_URL = '/assets/'
 STATIC_ROOT = 'assets'
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
