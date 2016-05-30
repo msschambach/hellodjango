@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'polls/pollsnav.html' %}
+<article class="container">
+  <header>
+    <h1>{{title}}</h1>
+  </header>
+
+  <form action="{% url 'polls.views.save_poll' %}" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="exampleInputEmail1">Question</label>
+      <textarea class="form-control" id="question" name="question" placeholder="Your question goes here..." rows="5">
+      </textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="">Choices</label>
+      <div class="choices">
+        <input id="choices" type="text" name="choices" class="form-control" placeholder="Add choice..."/>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-default">Ask</button>
+  </form>
+
+</article>
+
+{% endblock %}

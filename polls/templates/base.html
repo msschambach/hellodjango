@@ -11,9 +11,14 @@
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <!-- Place favicon.ico in the root directory -->
+        <link href='https://fonts.googleapis.com/css?family=Merriweather:400,700|Merriweather+Sans:400,700|Droid+Sans:400,700|Droid+Serif:400,700' rel='stylesheet' type='text/css'>
+
         {% compress css%}
         <link type="text/x-scss" rel="stylesheet" href="{% static 'polls/css/main.scss' %}" media="screen" title="no title" charset="utf-8">
         {% endcompress %}
+
+        <link rel="stylesheet" href="{% static 'polls/css/bootstrap-tokenfield/bootstrap-tokenfield.min.css' %}">
+        <link rel="stylesheet" href="{% static 'polls/css/bootstrap-tokenfield/tokenfield-typeahead.min.css' %}">
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -27,6 +32,7 @@
         </script>
         <script type="text/javascript" src="{% static 'polls/js/bootstrap/bootstrap.min.js' %}">
         </script>
+        <script type="text/javascript" src="{% static 'polls/js/bootstrap-tokenfield.min.js' %}" charset="utf-8"></script>
         <script type="text/javascript" src="{% static 'polls/js/main.js' %}">
         </script>
     </body>

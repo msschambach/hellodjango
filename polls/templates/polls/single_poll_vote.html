@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'polls/pollsnav.html' %}
+
+<article class="container question">
+  <header>
+    <h2>{{question.question_text}}</h2>
+  </header>
+  <form action="{% url 'polls.views.single_poll_save_vote' question.id %}" method="POST">
+    {% csrf_token %}
+    <fieldset>
+      {% for choice in question.choice_set.all %}
+        <input id="choice_{{choice_id}}" type="radio" name="choice_id" value="{{choice.id}}"/>
+        <label for="choice_{{choice_id}}">{{choice.choice_text}}</label>
+        <br/>
+      {% endfor %}
+    </fieldset>
+    <fieldset>
+      <button class="btn btn-primary" type="submit" name="submit">Vote</button>
+    </fieldset>
+  </form>
+</article>
+{% endblock %}

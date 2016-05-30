@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'polls/pollsnav.html' %}
+
+<article class="container question">
+  <header>
+    <h2>{{question.question_text}}</h2>
+  </header>
+
+  {% for choice in question.choice_set.all %}
+    <div class="choice">
+      <div class="text">{{ choice.choice_text }}</div>
+      <div class="votes progress" data-votes={{ choice.votes }}>
+        <div class="progress-bar" role="progressbar"
+        aria-valuenow="{{choice.get_percentage}}"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        style="width:{{choice.get_percentage_votes}}%">
+        {{choice.get_percentage_votes}}%
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  <a class="btn btn-success" href="{% url 'polls.views.single_poll_vote' question.id %}">Vote</a>
+</article>
+{% endblock %}

@@ -25,5 +25,5 @@ gulp.task('watch',['collectstatic'], function () {
     livereload.listen();
     gulp.watch('polls/static/polls/css/*/*.scss', ['collectstatic']).on('change', livereload.changed);
     gulp.watch('polls/static/polls/js/**/*.js').on('change', livereload.changed);
-    gulp.watch('polls/templates/*/*.html').on('change', livereload.changed);
+    gulp.watch('polls/templates/**/*.html').on('change', livereload.changed);
 });
